@@ -1590,5 +1590,16 @@ WAGNER.ZoomBlurPass.prototype.run = function( c ) {
 };
 
 
-	this.WAGNER = WAGNER;
+	window.WAGNER = WAGNER;
+
+	if (typeof exports !== 'undefined') {
+		if (typeof module !== 'undefined' && module.exports) {
+			exports = module.exports = WAGNER;
+		}
+		exports.WAGNER = WAGNER;
+	} else if (typeof define !== 'undefined' && define.amd) {
+		define(WAGNER);
+	} else {
+		this.WAGNER = WAGNER;
+	}
 }).call(this);
