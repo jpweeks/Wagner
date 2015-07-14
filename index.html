@@ -41,7 +41,6 @@
 <script src="dist/wagner.shaders.js"></script>
 <script src="dist/wagner.js"></script>
 <!--<script src="Wagner.experimental.js"></script>-->
-{# <script src="ShaderLoader.js"></script> #}
 <script src="js/debugTools.js"></script>
 
 <script>
@@ -54,8 +53,8 @@ var rS = new rStats( {
 	CSSPath: 'http://spite.github.io/rstats/',
 	values: {
 		frame: { caption: 'Total frame time (ms)', over: 16 },
-        raf: { caption: 'Time since last rAF (ms)' },
-        fps: { caption: 'Framerate (FPS)', below: 30 }
+		raf: { caption: 'Time since last rAF (ms)' },
+		fps: { caption: 'Framerate (FPS)', below: 30 }
 	},
 	groups: [
 		{ caption: 'Frame', values: [ 'frame', 'raf', 'fps' ] }
@@ -64,11 +63,11 @@ var rS = new rStats( {
 
 var links = document.querySelectorAll( 'a[rel=external]' );
 for( var j = 0; j < links.length; j++ ) {
-    var a = links[ j ];
-    a.addEventListener( 'click', function( e ) {
-        window.open( this.href, '_blank' );
-        e.preventDefault();
-    }, false );
+	var a = links[ j ];
+	a.addEventListener( 'click', function( e ) {
+		window.open( this.href, '_blank' );
+		e.preventDefault();
+	}, false );
 }
 
 var container, renderer, scene, camera, mesh, torus, material, fov = 70;
@@ -183,8 +182,8 @@ function init() {
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	renderer.setPixelRatio( window.devicePixelRatio );
 
-    //oculusEffect = new THREE.OculusRiftEffect(renderer, {worldScale: 100});
-    //oculusEffect.setSize( window.innerWidth, window.innerHeight );
+	//oculusEffect = new THREE.OculusRiftEffect(renderer, {worldScale: 100});
+	//oculusEffect.setSize( window.innerWidth, window.innerHeight );
 
 	container.appendChild( renderer.domElement );
 
@@ -221,7 +220,7 @@ function init() {
 		model.material.map.repeat.set( 8, 2 );
 		model.scale.set( 4, 4,4 );*/
 
-		var s = new THREE.CubeGeometry( 10, 10, 10, 1, 1 ,1 );
+		var s = new THREE.BoxGeometry( 10, 10, 10, 1, 1 ,1 );
 		//var s = new THREE.IcosahedronGeometry( 5, 3 );
 		var g = new THREE.Geometry();
 		var r = 2000;
@@ -404,15 +403,15 @@ function render() {
 	var t = .001 * Date.now();
 
 	/*rS( 'frame' ).start();
-    rS( 'rAF' ).tick();
-    rS( 'FPS' ).frame();*/
+	rS( 'rAF' ).tick();
+	rS( 'FPS' ).frame();*/
 
 	//light.position.set( 0, 3000 * Math.cos( t ), 2000 * Math.sin( t ) );
 
-    if( model ) {
-	    /*model.rotation.x += .001;
-	    model.rotation.y += .001;
-	    model.rotation.z += .005;*/
+	if( model ) {
+		/*model.rotation.x += .001;
+		model.rotation.y += .001;
+		model.rotation.z += .005;*/
 
 		renderer.autoClearColor = true;
 		composer.reset();
@@ -436,8 +435,8 @@ function render() {
 
 	}
 
-    //rS( 'frame' ).end();
-    //rS().update();
+	//rS( 'frame' ).end();
+	//rS().update();
 
 	requestAnimationFrame( render );
 	startTime = t;
