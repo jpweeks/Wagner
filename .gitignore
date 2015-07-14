@@ -27,4 +27,3 @@ node_modules
 
 # dist
 src/shaders/all.js
-dist/*.min.js
